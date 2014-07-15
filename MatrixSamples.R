@@ -26,6 +26,20 @@ P <- (ones %*% t(ones))/nrow(vec)
 Q <- diag(5) - P
 dX <-  Q %*% X
 
+###
+# Idempotency
+###
 
+P %*% P
+P
 
+# These appear identical but why is the below statement FALSE??? 
+P %*% P == P
 
+###
+# Variance
+###
+
+Var <- 1/(nrow(X)-1) * t(dX) %*% dX
+Var 
+var(X)
